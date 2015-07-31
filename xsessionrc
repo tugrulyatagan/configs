@@ -1,0 +1,54 @@
+#!/bin/bash
+ 
+# Hangi desktop secilerek login olunursa olunsun bu okunuyor ve bu dosyadaki
+# programlar calistiriliyor.
+ 
+# xmonad'da login olduktan sonra bu dosya okunuyor. Kontrol etmek için
+# aşağıdaki touch komutu kullanılabilir.
+#/usr/bin/touch /tmp/xsession-touch
+ 
+#/usr/bin/gnome-keyring-daemon &
+ 
+# xfce4-panel'de logout, suspend ve shut down çalışmıyor.
+#/usr/bin/xfce4-panel &
+ 
+# xmonad'da gnome trayer calistirir. Eger xfce4-panel calistirilmamissa.
+#/usr/bin/trayer --SetDockType true --height 20 --width 8 --edge top --align right --transparent true --expand true --SetPartialStrut true &
+ 
+# Network Manager applet
+#/usr/bin/nm-applet &
+ 
+/usr/bin/google-chrome &
+#/usr/bin/pidgin &
+ 
+# urxvt'yi ".xsessionrc"den direkt olarak calistirirsam, ssh-add komutu söyle
+# bir hata mesajı döndürüyor: "Could not open a connection to your
+# authentication agent".O yuzden ssh-agent ile calistiriyorum.
+#/usr/bin/urxvt &
+#/usr/bin/urxvt --loginShell &
+#/usr/bin/ssh-agent urxvt &
+ 
+#xrdb -merge ~/.Xdefaults &
+#xrdb -merge ~/.Xresources &
+ 
+# Bu bir turlu calismadi!!! Her login olduğumda bu komutu çalıştırmam
+# gerekiyor.
+#/usr/bin/setxkbmap -layout tr
+ 
+# Bu dosyada capslock yerine CTRL ayarlaniyor.
+#/usr/bin/xmodmap /home/ozgun/.Xmodmap &
+ 
+# capslock yerince CTRL
+# setxkbmap -option ctrl:nocaps
+#/home/ozgun/bin/capslock_switch.sh
+ 
+# arkaplan resmini set eder
+#/usr/bin/feh --bg-scale /home/ozgun/Pictures/backgrounds/cosmos-1920px.jpg
+ 
+# laptop monitorunu disable etmek icin:
+#/usr/bin/xrandr --output LVDS --off
+ 
+# mouse sensitivity
+# https://wiki.archlinux.org/index.php/Mouse_acceleration
+# Asagidaki komut bin/after_login_....sh dosyasinda calistiriliyor.
+#/usr/bin/xset m 3/2 4
