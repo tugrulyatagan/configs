@@ -113,11 +113,55 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PS1="\[\e[00;34m\][\t]\[\e[0m\]\[\e[00;37m\] \[\e[0m\]\[\e[01;32m\]\u\[\e[0m\]\[\e[01;37m\]@\[\e[0m\]\[\e[01;32m\]\h\[\e[0m\]\[\e[01;37m\]:\[\e[0m\]\[\e[01;31m\]\w\[\e[0m\]\[\e[00;33m\]\\$\[\e[0m\]\[\e[00;37m\] \[\e[0m\]"
+source airtiesrc
+
+export USE_CCACHE=1
+export SVN_EDITOR=emacs
+export CSCOPE_EDITOR=emacs
+export EDITOR=emacs
 
 alias fuck='sudo $(history -p \!\!)'
 
 
-export ALTERAOCLSDKROOT="/opt/altera/hld"
+function g {
+    grep -rnIi --color --exclude-dir={.svn,.git} --exclude="*cscope*" "$@";
+}
 
-export QSYS_ROOTDIR="/opt/altera/quartus/sopc_builder/bin"
+function e {
+    IFS=':' read -ra cmd <<< "$1"
+    file=${cmd[0]}
+    line=${cmd[1]}
+    
+    if [[ "$line" == ?(-)+([0-9]) ]] ; then
+        emacs "+$line" "$file"
+    else
+        emacs "$file"
+    fi
+}
+
+function v {
+    IFS=':' read -ra cmd <<< "$1"
+    file=${cmd[0]}
+    line=${cmd[1]}
+    
+    if [[ "$line" == ?(-)+([0-9]) ]] ; then
+        vim "$file" "+$line"
+    else
+        vim "$file"
+    fi
+}
+
+function f {
+    find -iname "$@";
+}
+
+function cs {
+    rm -rf cscope.*
+    cscope -b -R
+    cscope-indexer -r
+}
+
+source ~/.git-prompt.sh
+source ~/.subversion-prompt.sh
+
+export PS1='\[$(tput bold)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;1m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]  \[\033[38;5;14m\]$(__git_svn_ps1)\n\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
