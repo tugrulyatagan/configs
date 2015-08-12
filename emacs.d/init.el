@@ -1,3 +1,8 @@
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("marmalade" . "https://marmalade-repo.org/packages/")
+                         ("melpa" . "http://melpa.org/packages/")))
+
+
 (put 'scroll-left 'disabled nil)
 (setq lazy-highlight-cleanup nil) ; M-x lazy-highlight-cleanup
  
@@ -15,11 +20,7 @@
                   indent-tabs-mode t)
 
 (add-hook 'find-file-hook (lambda () (setq buffer-read-only t)))
-
-  
-(require 'package)
-(add-to-list 'package-archives
-  '("melpa" . "http://melpa.milkbox.net/packages/") t)
+ 
 
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
@@ -36,22 +37,24 @@
  )
 
 
-;;(setenv "PATH" (concat (getenv "PATH") ":/opt/cscope/bin"))
-;;(setq cscope-do-not-update-database t)
- ;; (load-file "/usr/share/emacs/site-lisp/xcscope/xcscope.el")
 (require 'xcscope)
+(cscope-setup)
+(setq cscope-do-not-update-database t)
 (global-set-key (kbd "<f1>") (kbd "C-x C-q"))
 (global-set-key (kbd "<f2>") 'goto-line)
 (global-set-key (kbd "<f3>") 'cscope-set-initial-directory)
-(global-set-key (kbd "<f4>") 'cscope-unset-initial-directory)
-(global-set-key (kbd "<f5>") 'cscope-find-this-symbol)
-(global-set-key (kbd "<f6>") 'cscope-find-global-definition)
-(global-set-key (kbd "<f7>") 'cscope-find-global-definition-no-prompting)
-(global-set-key (kbd "<f8>") 'cscope-pop-mark)
-(global-set-key (kbd "<f9>") 'cscope-next-symbol)
-(global-set-key (kbd "<f10>") 'cscope-next-file)
-(global-set-key (kbd "<f11>") 'cscope-prev-symbol)
-(global-set-key (kbd "<f12>") 'cscope-prev-file)
-(global-set-key (kbd "M-<f9>") 'cscope-display-buffer)
-(global-set-key (kbd "M-<f10>") 'cscope-display-buffer-toggle)
+(global-set-key (kbd "<f4>") 'cscope-find-this-symbol)
+(global-set-key (kbd "<f5>") 'cscope-find-global-definition-no-prompting)
+(global-set-key (kbd "<f6>") 'cscope-pop-mark)
+(global-set-key (kbd "<f7>") 'cscope-history-forward-file-current-result)
+(global-set-key (kbd "M-<f7>") 'cscope-history-backward-file-current-result)
+(global-set-key (kbd "<f8>") 'cscope-history-forward-line-current-result)
+(global-set-key (kbd "<M-f8>") 'cscope-history-backward-line-current-result)
+(global-set-key (kbd "<f9>") 'cscope-find-functions-calling-this-function)
+(global-set-key (kbd "M-<f9>") 'cscope-find-called-functions)
+(global-set-key (kbd "<f10>") 'cscope-find-assignments-to-this-symbol)
+(global-set-key (kbd "<f11>") 'cscope-find-this-text-string)
+(global-set-key (kbd "<f12>") 'cscope-display-buffer)
+(global-set-key (kbd "M-<f12>") 'cscope-display-buffer-toggle)
+
 
