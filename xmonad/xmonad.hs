@@ -3,6 +3,7 @@ import XMonad.Hooks.ManageDocks
 import XMonad.Config.Gnome
 import qualified Data.Map as M
 import XMonad.Hooks.SetWMName
+--install libghc-xmonad-dev
 
 customKeys (XConfig {modMask = modm}) = M.fromList $
 	[ ((modm, xK_p)			, spawn "dmenu_run")
