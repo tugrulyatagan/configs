@@ -54,7 +54,6 @@
 (global-set-key (kbd "M-<f9>") 'cscope-find-called-functions)
 (global-set-key (kbd "<f10>") 'cscope-find-assignments-to-this-symbol)
 (global-set-key (kbd "<f11>") 'cscope-find-this-text-string)
+(global-set-key (kbd "M-<f11>") 'cscope-find-this-file)
 (global-set-key (kbd "<f12>") 'cscope-display-buffer)
 (global-set-key (kbd "M-<f12>") 'cscope-display-buffer-toggle)
-
-
