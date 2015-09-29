@@ -15,9 +15,10 @@
   )
 
 (setq column-number-mode t)
-(setq-default c-basic-offset 8
-                  tab-width 8
-                  indent-tabs-mode t)
+
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 8)
+(setq indent-line-function 'insert-tab)
 
 (add-hook 'find-file-hook (lambda () (setq buffer-read-only t)))
  

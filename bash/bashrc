@@ -128,7 +128,7 @@ alias fuck='sudo $(history -p \!\!)'
 
 
 function g {
-    grep -rnIi --color --exclude-dir={.svn,.git} --exclude="*cscope*" "$@";
+    grep -rnIi --color --exclude-dir={.svn,.git,.mod} --exclude="*cscope*" "$@";
 }
 
 function e {
