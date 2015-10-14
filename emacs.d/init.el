@@ -16,9 +16,12 @@
 
 (setq column-number-mode t)
 
-(setq-default indent-tabs-mode nil)
-(setq-default tab-width 8)
-(setq indent-line-function 'insert-tab)
+;;(setq-default indent-tabs-mode nil)
+;;(setq indent-line-function 'insert-tab)
+(setq tab-width 8) ; or any other preferred value
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+
 
 (add-hook 'find-file-hook (lambda () (setq buffer-read-only t)))
  
@@ -46,6 +49,7 @@
 (global-set-key (kbd "<f3>") 'cscope-set-initial-directory)
 (global-set-key (kbd "<f4>") 'cscope-find-this-symbol)
 (global-set-key (kbd "<f5>") 'cscope-find-global-definition-no-prompting)
+(global-set-key (kbd "M-<f5>") 'cscope-find-global-definition)
 (global-set-key (kbd "<f6>") 'cscope-pop-mark)
 (global-set-key (kbd "<f7>") 'cscope-history-forward-file-current-result)
 (global-set-key (kbd "M-<f7>") 'cscope-history-backward-file-current-result)

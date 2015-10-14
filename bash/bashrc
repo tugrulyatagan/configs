@@ -168,4 +168,10 @@ function cs {
 source /configs/bash/git-prompt.sh
 source /configs/bash/subversion-prompt.sh
 
-export PS1='\[$(tput bold)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;1m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]  \[\033[38;5;14m\]$(__git_svn_ps1)\n\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
+export PS1='\[\033[38;5;32m\][\t]\[$(tput sgr0)\] \[$(tput bold)\]\[\033[38;5;10m\]\u\[$(tput sgr0)\]\[\033[38;5;15m\]@\[$(tput sgr0)\]\[\033[38;5;39m\]\h\[$(tput sgr0)\]\[\033[38;5;15m\]:\[$(tput sgr0)\]\[\033[38;5;1m\]\w\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\]  \[\033[38;5;14m\]$(__git_svn_ps1)\n\[$(tput bold)\]\[$(tput sgr0)\]\[\033[38;5;1m\]\\$\[$(tput sgr0)\]\[$(tput sgr0)\]\[\033[38;5;15m\] \[$(tput sgr0)\]'
+
+
+if ! [ -z "$BASH_VERSION" -o -z "$PS1" -o -n "$last_command_started_cache" ]; then
+   . /usr/share/undistract-me/long-running.bash
+   notify_when_long_running_commands_finish_install
+fi
