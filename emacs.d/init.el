@@ -15,6 +15,7 @@
   )
 
 (setq column-number-mode t)
+(which-function-mode 1)
 
 ;;(setq-default indent-tabs-mode nil)
 ;;(setq indent-line-function 'insert-tab)
@@ -62,3 +63,7 @@
 (global-set-key (kbd "M-<f11>") 'cscope-find-this-file)
 (global-set-key (kbd "<f12>") 'cscope-display-buffer)
 (global-set-key (kbd "M-<f12>") 'cscope-display-buffer-toggle)
+
+;(global-set-key (kbd "TAB <left>") 'previous-buffer)
+;(global-set-key (kbd "TAB <right>") 'next-buffer)
+

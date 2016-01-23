@@ -128,7 +128,7 @@ alias fuck='sudo $(history -p \!\!)'
 
 
 function g {
-    grep -rnIi --color --exclude-dir={.svn,.git,.mod} --exclude="*cscope*" "$@";
+    grep -rnIi --color --exclude-dir={.svn,.git,.mod} --exclude={*cscope*,*.cmd,modules.order,*.mod} "$@";
 }
 
 function e {
@@ -159,10 +159,17 @@ function f {
     find -iname "$@";
 }
 
+function fe {
+    LOC=( $(find -iname "$@") );
+    e $LOC
+}
+
 function cs {
     rm -rf cscope.*
-    cscope -b -R
-    cscope-indexer -r
+    find `pwd` \( \( -iname "*.c" -o -iname "*.cc" -o -iname "*.h" \) -and \( -not -type l \) \) -print > cscope.files
+    #find `pwd` \( \( -iname "*.c" -o -iname "*.cc" -o -iname "*.h" \) -and -type l \) -printf "%l\n"  >> cscope.files
+    cscope -b
+    #cscope-indexer -r
 }
 
 source /configs/bash/git-prompt.sh
