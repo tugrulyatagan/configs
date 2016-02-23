@@ -64,6 +64,22 @@
 (global-set-key (kbd "<f12>") 'cscope-display-buffer)
 (global-set-key (kbd "M-<f12>") 'cscope-display-buffer-toggle)
 
+
+;;(global-set-key (kbd "<f12>") 'mo-git-blame-current)
+;;(global-set-key (kbd "M-<f12>") 'vc-annotate)
+
 ;(global-set-key (kbd "TAB <left>") 'previous-buffer)
 ;(global-set-key (kbd "TAB <right>") 'next-buffer)
 
+;;(load "elscreen" "ElScreen" t)
+;;(require 'elscreen)
+
+;;(elscreen-start)
+
+;; Windowskey+PgUP/PgDown switches between elscreens
+;(global-set-key (kbd "M-<f12>") 'elscreen-previous)
+;(global-set-key (kbd "<f12>") 'elscreen-next)
+
+;; F9 creates a new elscreen, shift-F9 kills it
+;(global-set-key (kbd "<f11>") 'elscreen-create)
+;(global-set-key (kbd "M-<f11>") 'elscreen-kill)
