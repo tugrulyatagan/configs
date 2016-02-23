@@ -46,40 +46,37 @@
 (cscope-setup)
 (setq cscope-do-not-update-database t)
 (global-set-key (kbd "<f1>") (kbd "C-x C-q"))
-(global-set-key (kbd "<f2>") 'goto-line)
-(global-set-key (kbd "<f3>") 'cscope-set-initial-directory)
-(global-set-key (kbd "<f4>") 'cscope-find-this-symbol)
-(global-set-key (kbd "<f5>") 'cscope-find-global-definition-no-prompting)
+(global-set-key (kbd "<f2>")   'goto-line)
+(global-set-key (kbd "<f3>")   'cscope-set-initial-directory)
+(global-set-key (kbd "<f4>")   'cscope-find-this-symbol)
+(global-set-key (kbd "<f5>")   'cscope-find-global-definition-no-prompting)
 (global-set-key (kbd "M-<f5>") 'cscope-find-global-definition)
-(global-set-key (kbd "<f6>") 'cscope-pop-mark)
-(global-set-key (kbd "<f7>") 'cscope-history-forward-file-current-result)
-(global-set-key (kbd "M-<f7>") 'cscope-history-backward-file-current-result)
-(global-set-key (kbd "<f8>") 'cscope-history-forward-line-current-result)
-(global-set-key (kbd "M-<f8>") 'cscope-history-backward-line-current-result)
-(global-set-key (kbd "<f9>") 'cscope-find-functions-calling-this-function)
-(global-set-key (kbd "M-<f9>") 'cscope-find-called-functions)
-(global-set-key (kbd "<f10>") 'cscope-find-assignments-to-this-symbol)
-(global-set-key (kbd "<f11>") 'cscope-find-this-text-string)
-(global-set-key (kbd "M-<f11>") 'cscope-find-this-file)
-(global-set-key (kbd "<f12>") 'cscope-display-buffer)
-(global-set-key (kbd "M-<f12>") 'cscope-display-buffer-toggle)
+(global-set-key (kbd "<f6>")   'cscope-pop-mark)
+(global-set-key (kbd "<f7>")   'cscope-history-forward-line-current-result)
+(global-set-key (kbd "M-<f7>") 'cscope-history-backward-line-current-result)
+(global-set-key (kbd "<f8>")   'cscope-find-functions-calling-this-function)
+(global-set-key (kbd "M-<f8>") 'cscope-find-assignments-to-this-symbol)
+(global-set-key (kbd "<f9>")   'cscope-display-buffer)
+(global-set-key (kbd "M-<f9>") 'cscope-display-buffer-toggle)
 
 
-;;(global-set-key (kbd "<f12>") 'mo-git-blame-current)
-;;(global-set-key (kbd "M-<f12>") 'vc-annotate)
+(global-set-key (kbd "<f10>")   'mo-git-blame-current)
+(global-set-key (kbd "M-<f10>") 'vc-annotate)
 
-;(global-set-key (kbd "TAB <left>") 'previous-buffer)
-;(global-set-key (kbd "TAB <right>") 'next-buffer)
 
+(global-set-key (kbd "<f11>")   'elscreen-create)
+(global-set-key (kbd "M-<f11>") 'elscreen-kill)
+(global-set-key (kbd "M-<right>")   'elscreen-next)
+(global-set-key (kbd "M-<left>") 'elscreen-previous)
 ;;(load "elscreen" "ElScreen" t)
 ;;(require 'elscreen)
+(add-hook 'emacs-startup-hook 'elscreen-start)
 
-;;(elscreen-start)
 
-;; Windowskey+PgUP/PgDown switches between elscreens
-;(global-set-key (kbd "M-<f12>") 'elscreen-previous)
-;(global-set-key (kbd "<f12>") 'elscreen-next)
+;;(global-set-key (kbd "M-<left>") 'previous-buffer)
+;;(global-set-key (kbd "M-<right>") 'next-buffer)
+(global-set-key (kbd "M-<up>") 'other-window)
 
-;; F9 creates a new elscreen, shift-F9 kills it
-;(global-set-key (kbd "<f11>") 'elscreen-create)
-;(global-set-key (kbd "M-<f11>") 'elscreen-kill)
+
+
+
