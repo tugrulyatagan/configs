@@ -1,8 +1,10 @@
 Host ev
      HostName tugrulyatagan.net
 Host evlocal
-     HostName 192.168.0.11
+     HostName 192.168.0.50
 Host do
      HostName tugrulyatagan.com
 Host ituieeelab.org
      HostName ituieeelab.org
+Host tgrl-debian
+     HostName 95.85.11.113
