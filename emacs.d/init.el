@@ -78,5 +78,15 @@
 (global-set-key (kbd "M-<up>") 'other-window)
 
 
-
-
+(global-unset-key (kbd "<up>"))
+(global-unset-key (kbd "<down>"))
+(global-unset-key (kbd "<left>"))
+(global-unset-key (kbd "<right>"))
+(global-unset-key (kbd "<C-up>"))
+(global-unset-key (kbd "<C-down>"))
+(global-unset-key (kbd "<C-left>"))
+(global-unset-key (kbd "<C-right>"))
+(global-unset-key (kbd "<M-up>"))
+(global-unset-key (kbd "<M-down>"))
+(global-unset-key (kbd "<M-left>"))
+(global-unset-key (kbd "<M-right>"))
